@@ -6,7 +6,6 @@ $mysql_qry = "select * from users where username = '$user_name' and password = '
 $result = mysqli_query($con,$mysql_qry);
 if(mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
-    $_SESSION['name']= $row["name"];
     $name = $row["name"];
     echo "paviko";
 } else {
