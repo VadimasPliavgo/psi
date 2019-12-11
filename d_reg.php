@@ -1,17 +1,10 @@
 <?php
 require('db.php');
-$name =$_GET["name"];
+$email =$_GET["name"];
 $user_name =$_GET["user_name"];
 $user_pass =$_GET["user_pass"];
 
-echo $name;
-/*
-$mysql_qry ="insert into user(username, password, driver) values('$user_name','$user_pass', 1);";
-
-if($conn->query($mysql_qry) === TRUE) {
-    echo "Insert successful";
-} else {
-    echo "Error".$mysql_qry."<br>".$conn->error;
-}
-$conn->close();*/
-?>
+$query = "INSERT into `users` (username, password, email, trn_date, company_name, active, admin, driver)
+                        VALUES ('$user_name', '" . md5($user_pass) . "', '$email', '$trn_date', '$company', FALSE, FALSE, TRUE )";
+            $result = mysqli_query($con, $query);
+            
